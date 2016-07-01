@@ -28,14 +28,7 @@
             android:fontFamily="sans-serif"
             android:textSize="24sp"
             android:gravity="center"
-            android:textColor="@color/colorPrimaryDark" />
-
-        <ImageButton
-            android:layout_width="112sp"
-            android:layout_height="36sp"
-            android:id="@+id/imgbtn_add_point_team1"
-            android:src="@drawable/btn_action_up"
-            android:background="@android:color/transparent" />
+            android:textColor="@color/colorAccent" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -45,15 +38,27 @@
             android:id="@+id/txtview_score_team1"
             android:fontFamily="sans-serif-light"
             android:textSize="112sp"
-            android:textColor="#009688"
+            android:textColor="@android:color/tab_indicator_text"
             android:gravity="center" />
+
+        <ImageButton
+            android:layout_width="112sp"
+            android:layout_height="72sp"
+            android:id="@+id/imgbtn_add_point_team1"
+            android:src="@drawable/btn_action_up"
+            android:background="@android:color/transparent"
+            android:layout_weight="1"
+            android:tint="@color/colorAccent" />
 
         <ImageButton
             android:layout_width="112sp"
             android:layout_height="36sp"
             android:id="@+id/imgbtn_reduce_point_team1"
             android:src="@drawable/btn_action_down"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:layout_weight="2"
+            android:tint="@android:color/secondary_text_light_nodisable" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -71,14 +76,7 @@
             android:fontFamily="sans-serif"
             android:textSize="24sp"
             android:gravity="center"
-            android:textColor="@color/colorPrimaryDark" />
-
-        <ImageButton
-            android:layout_width="112sp"
-            android:layout_height="36sp"
-            android:id="@+id/imgbtn_add_point_team2"
-            android:src="@drawable/btn_action_up"
-            android:background="@android:color/transparent" />
+            android:textColor="@color/colorAccent" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -88,15 +86,24 @@
             android:id="@+id/txtview_score_team2"
             android:fontFamily="sans-serif-light"
             android:textSize="112sp"
-            android:textColor="#009688"
+            android:textColor="@android:color/tab_indicator_text"
             android:gravity="center" />
+
+        <ImageButton
+            android:layout_width="112sp"
+            android:layout_height="72sp"
+            android:id="@+id/imgbtn_add_point_team2"
+            android:src="@drawable/btn_action_up"
+            android:background="@android:color/transparent"
+            android:tint="@color/colorAccent" />
 
         <ImageButton
             android:layout_width="112sp"
             android:layout_height="36sp"
             android:id="@+id/imgbtn_reduce_point_team2"
             android:src="@drawable/btn_action_down"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:tint="@android:color/secondary_text_light_nodisable" />
     </LinearLayout>
 
 </LinearLayout>

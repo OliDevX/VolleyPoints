@@ -110,13 +110,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateDisplays(){
 
+        // Declares both text views
+
         TextView txtViewScoreTeam1 = (TextView) findViewById(R.id.txtview_score_team1);
         TextView txtViewScoreTeam2 = (TextView) findViewById(R.id.txtview_score_team2);
+
+        // Updates textviews with current points on each team
 
         txtViewScoreTeam1.setText(Integer.toString(Team1Points));
         txtViewScoreTeam2.setText(Integer.toString(Team2Points));
 
-        Toast.makeText(MainActivity.this, "El marcador cambió", Toast.LENGTH_SHORT).show();
+        // Toast.makeText(MainActivity.this, "El marcador cambió", Toast.LENGTH_SHORT).show();
 
     }
 
