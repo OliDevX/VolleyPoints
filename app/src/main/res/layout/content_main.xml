@@ -24,7 +24,8 @@
             android:layout_width="112sp"
             android:layout_height="36sp"
             android:id="@+id/imgbtn_add_point_team1"
-            android:src="@drawable/btn_action_up" />
+            android:src="@drawable/btn_action_up"
+            android:background="@android:color/transparent" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -34,13 +35,14 @@
             android:id="@+id/txtview_score_team1"
             android:fontFamily="sans-serif-light"
             android:textSize="112sp"
-            android:textColor="#727272" />
+            android:textColor="#009688" />
 
         <ImageButton
             android:layout_width="112sp"
             android:layout_height="36sp"
             android:id="@+id/reduce_point_team1"
-            android:src="@drawable/btn_action_down" />
+            android:src="@drawable/btn_action_down"
+            android:background="@android:color/transparent" />
     </LinearLayout>
 
     <LinearLayout
@@ -54,7 +56,8 @@
             android:layout_width="112sp"
             android:layout_height="36sp"
             android:id="@+id/imageButton"
-            android:src="@drawable/btn_action_up" />
+            android:src="@drawable/btn_action_up"
+            android:background="@android:color/transparent" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -70,6 +73,7 @@
             android:layout_width="112sp"
             android:layout_height="36sp"
             android:id="@+id/imageButton2"
-            android:src="@drawable/btn_action_down" />
+            android:src="@drawable/btn_action_down"
+            android:background="@android:color/transparent" />
     </LinearLayout>
 </LinearLayout>
