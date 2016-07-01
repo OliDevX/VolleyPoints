@@ -20,6 +20,16 @@
         android:gravity="center_horizontal"
         android:layout_weight="1">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Team 1"
+            android:id="@+id/textView2"
+            android:fontFamily="sans-serif"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:textColor="@color/colorPrimaryDark" />
+
         <ImageButton
             android:layout_width="112sp"
             android:layout_height="36sp"
@@ -52,6 +62,16 @@
         android:gravity="center_horizontal"
         android:layout_weight="1">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Team 2"
+            android:id="@+id/textView3"
+            android:fontFamily="sans-serif"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:textColor="@color/colorPrimaryDark" />
+
         <ImageButton
             android:layout_width="112sp"
             android:layout_height="36sp"
@@ -76,4 +96,5 @@
             android:src="@drawable/btn_action_down"
             android:background="@android:color/transparent" />
     </LinearLayout>
+
 </LinearLayout>
