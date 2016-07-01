@@ -14,6 +14,12 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Declares Variables to Keep Team points
+
+    public int Team1Points; // Holds Team1Points
+    public int Team2Points; // Holds Team2Points
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,11 +36,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        // Declares ImageButton variables
+
         ImageButton AddPointTeam1 = (ImageButton) findViewById(R.id.imgbtn_add_point_team1);
         ImageButton ReducePointTeam1 = (ImageButton) findViewById(R.id.imgbtn_reduce_point_team1);
         ImageButton AddPointTeam2 = (ImageButton) findViewById(R.id.imgbtn_add_point_team2);
         ImageButton ReducePointTeam2 = (ImageButton) findViewById(R.id.imgbtn_reduce_point_team2);
 
+        // OnClickListeners for all the buttons
 
         AddPointTeam1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        // End of OnClickListeners for Buttons
 
     }
 
@@ -76,7 +86,32 @@ public class MainActivity extends AppCompatActivity {
     // Parameters are: int team >> 1 or 2; Boolean action >>  True-increase points, False-decrease points
 
     public void changeScore(int team, boolean action){
-        Toast.makeText(MainActivity.this, "test", Toast.LENGTH_SHORT).show();
+        if(team==1){
+            if(action == true){
+                if (Team1Points<99){Team1Points++;}
+            }
+            if (action== false){
+                if (Team1Points>0){Team1Points--;}
+            }
+        }
+
+        if(team==2){
+            if(action == true){
+                if (Team2Points<99){Team2Points++;}
+            }
+            if (action== false){
+                if (Team2Points>0){Team2Points--;}
+            }
+        }
+
+        updateDisplays();  // Calls function to update the displays with new points
+    }
+
+    public void updateDisplays(){
+
+
+        Toast.makeText(MainActivity.this, "El marcador cambió", Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
