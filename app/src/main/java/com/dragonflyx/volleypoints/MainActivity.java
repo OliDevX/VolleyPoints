@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -109,6 +110,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateDisplays(){
 
+        TextView txtViewScoreTeam1 = (TextView) findViewById(R.id.txtview_score_team1);
+        TextView txtViewScoreTeam2 = (TextView) findViewById(R.id.txtview_score_team2);
+
+        txtViewScoreTeam1.setText(Integer.toString(Team1Points));
+        txtViewScoreTeam2.setText(Integer.toString(Team2Points));
 
         Toast.makeText(MainActivity.this, "El marcador cambió", Toast.LENGTH_SHORT).show();
 
