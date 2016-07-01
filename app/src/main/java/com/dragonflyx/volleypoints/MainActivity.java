@@ -31,13 +31,52 @@ public class MainActivity extends AppCompatActivity {
         });
 
         ImageButton AddPointTeam1 = (ImageButton) findViewById(R.id.imgbtn_add_point_team1);
+        ImageButton ReducePointTeam1 = (ImageButton) findViewById(R.id.imgbtn_reduce_point_team1);
+        ImageButton AddPointTeam2 = (ImageButton) findViewById(R.id.imgbtn_add_point_team2);
+        ImageButton ReducePointTeam2 = (ImageButton) findViewById(R.id.imgbtn_reduce_point_team2);
+
 
         AddPointTeam1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "test", Toast.LENGTH_SHORT).show();
+                changeScore(1,true);
+                // Toast.makeText(MainActivity.this, "test", Toast.LENGTH_SHORT).show();
             }
         });
+
+        ReducePointTeam1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeScore(1,false);
+                // Toast.makeText(MainActivity.this, "test", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        AddPointTeam2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeScore(2,true);
+                // Toast.makeText(MainActivity.this, "test", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ReducePointTeam2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeScore(2,false);
+                // Toast.makeText(MainActivity.this, "test", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+    }
+
+    // changeScore method uses inputs from buttons to change scores on layout:
+    // Parameters are: int team >> 1 or 2; Boolean action >>  True-increase points, False-decrease points
+
+    public void changeScore(int team, boolean action){
+        Toast.makeText(MainActivity.this, "test", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -61,4 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
+
+
