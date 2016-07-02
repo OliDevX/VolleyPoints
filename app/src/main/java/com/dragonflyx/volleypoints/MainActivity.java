@@ -1,25 +1,33 @@
 package com.dragonflyx.volleypoints;
 
+import android.content.DialogInterface;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.AlertDialog;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Declares Variables to Keep Team points
+    // Declares Variables to Keep Team points & Names //
 
     public int Team1Points; // Holds Team1Points
     public int Team2Points; // Holds Team2Points
 
+    public String Team1Name; // Holds Team1 Name
+    public String Team2Name; // Holds Team2 Name
+
+    ////////////////////////////////////////////////////
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +45,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Declares TextView variables
+
+        TextView TextViewTeam1Name = (TextView) findViewById(R.id.txtViewTeam1Name);
+        TextView TextViewTeam2Name = (TextView) findViewById(R.id.txtViewTeam2Name);
+
+        // Sets listeners for TextViews
+
+        TextViewTeam1Name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                teamNameSet(1);
+                // Toast.makeText(MainActivity.this, "test", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        TextViewTeam2Name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                teamNameSet(2);
+                // Toast.makeText(MainActivity.this, "test 2", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         // Declares ImageButton variables
 
@@ -80,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // End of OnClickListeners for Buttons
-
     }
 
     // changeScore method uses inputs from buttons to change scores on layout:
@@ -108,9 +137,59 @@ public class MainActivity extends AppCompatActivity {
         updateDisplays();  // Calls function to update the displays with new points
     }
 
+    public void teamNameSet(int team){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Title");
+
+        // Set up the input
+        final EditText input = new EditText(this);
+
+        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        builder.setView(input);
+
+        // Set up the buttons depending if we are changing name of team 1 or 2
+        if (team == 1) {
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Team1Name = input.getText().toString();
+                }
+            });
+        }
+
+        if (team == 2) {
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Team2Name = input.getText().toString();
+                }
+            });
+        }
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
+        updateDisplays();
+
+    }
+
     public void updateDisplays(){
 
         // Declares both text views
+
+        TextView txtViewTeam1Name = (TextView) findViewById(R.id.txtViewTeam1Name);
+        TextView txtViewTeam2Name = (TextView) findViewById(R.id.txtViewTeam2Name);
+
+        txtViewTeam1Name.setText(Team1Name);
+        txtViewTeam2Name.setText(Team2Name);
 
         TextView txtViewScoreTeam1 = (TextView) findViewById(R.id.txtview_score_team1);
         TextView txtViewScoreTeam2 = (TextView) findViewById(R.id.txtview_score_team2);
