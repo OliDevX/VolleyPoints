@@ -21,11 +21,12 @@ public class MainActivity extends AppCompatActivity {
 
     // Declares Variables to Keep Team points & Names //
 
-    public int Team1Points; // Holds Team1Points
-    public int Team2Points; // Holds Team2Points
+    public int Team1Points = 0; // Holds Team1Points
+    public int Team2Points = 0; // Holds Team2Points
 
-    public String Team1Name; // Holds Team1 Name
-    public String Team2Name; // Holds Team2 Name
+    public String Team1Name = "HOME"; // Holds Team1 Name
+    public String Team2Name = "VISIT"; // Holds Team2 Name
+
 
     ////////////////////////////////////////////////////
 
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        updateDisplays();  // Calls function to update the displays with new point
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -146,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText input = new EditText(this);
 
         // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
-        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_NORMAL);
         builder.setView(input);
 
         // Set up the buttons depending if we are changing name of team 1 or 2
@@ -155,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     Team1Name = input.getText().toString();
+                    updateDisplays();
                 }
             });
         }
@@ -164,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     Team2Name = input.getText().toString();
+                    updateDisplays();
                 }
             });
         }
@@ -176,9 +181,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         builder.show();
-
-        updateDisplays();
-
     }
 
     public void updateDisplays(){
@@ -198,8 +200,6 @@ public class MainActivity extends AppCompatActivity {
 
         txtViewScoreTeam1.setText(Integer.toString(Team1Points));
         txtViewScoreTeam2.setText(Integer.toString(Team2Points));
-
-        // Toast.makeText(MainActivity.this, "El marcador cambió", Toast.LENGTH_SHORT).show();
 
     }
 
