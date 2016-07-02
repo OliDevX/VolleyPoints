@@ -1,7 +1,6 @@
 package com.dragonflyx.volleypoints;
 
 import android.content.DialogInterface;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -143,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
     public void teamNameSet(int team){
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Title");
+        builder.setTitle(R.string.abc_change_teams_name);
 
         // Set up the input
         final EditText input = new EditText(this);
@@ -154,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Set up the buttons depending if we are changing name of team 1 or 2
         if (team == 1) {
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            builder.setPositiveButton(R.string.abc_ok_caps, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     Team1Name = input.getText().toString();
