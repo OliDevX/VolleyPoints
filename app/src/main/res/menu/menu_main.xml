@@ -3,8 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.dragonflyx.volleypoints.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_reset"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/abc_action_reset"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_help"
+        android:orderInCategory="200"
+        android:title="@string/abc_action_help"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="300"
+        android:title="@string/abc_action_about"
         app:showAsAction="never" />
 </menu>

@@ -18,14 +18,13 @@ import android.app.AlertDialog;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Declares Variables to Keep Team points & Names //
+    /// Declares Variables to Keep Team points & Names ///
 
     public int Team1Points = 0; // Holds Team1Points
     public int Team2Points = 0; // Holds Team2Points
 
     public String Team1Name = "HOME"; // Holds Team1 Name
     public String Team2Name = "VISIT"; // Holds Team2 Name
-
 
     ////////////////////////////////////////////////////
 
@@ -163,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (team == 2) {
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            builder.setPositiveButton(R.string.abc_ok_caps, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     Team2Name = input.getText().toString();
@@ -172,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.abc_cancel_caps, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -217,13 +216,11 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_reset) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
+
     }
 
 }
-
-
