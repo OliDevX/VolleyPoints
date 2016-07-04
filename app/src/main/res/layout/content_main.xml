@@ -11,7 +11,8 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.dragonflyx.volleypoints.MainActivity"
     tools:showIn="@layout/activity_main"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:touchscreenBlocksFocus="false">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -35,21 +36,25 @@
                 android:fontFamily="sans-serif"
                 android:textSize="24sp"
                 android:gravity="center"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@android:color/darker_gray"
                 android:background="@android:color/transparent"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/abc_single_zero"
                 android:id="@+id/txtview_score_team1"
                 android:fontFamily="sans-serif-light"
                 android:textSize="112sp"
-                android:textColor="@android:color/darker_gray"
-                android:gravity="center" />
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:padding="8dp"
+                android:layout_margin="8dp"
+                android:background="@color/colorAccent"
+                android:elevation="8dp" />
 
             <ImageButton
                 android:layout_width="112sp"
@@ -70,32 +75,35 @@
                 android:tint="@color/colorPrimaryDark" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Time outs"
-                android:id="@+id/textView" />
+                android:text="Time Outs"
+                android:id="@+id/textView_timeout_team1"
+                android:fontFamily="sans-serif"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:textColor="@android:color/darker_gray" />
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/LinearLayout_ScoreContainer"
-                android:gravity="center_vertical|center_horizontal">
+                android:gravity="center">
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/checkBox" />
+                    android:id="@+id/checkBox_1_1" />
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/checkBox2" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/checkBox3" />
+                    android:id="@+id/checkBox_1_2" />
 
             </LinearLayout>
 
@@ -117,21 +125,25 @@
                 android:fontFamily="sans-serif"
                 android:textSize="24sp"
                 android:gravity="center"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@android:color/darker_gray"
                 android:background="@android:color/transparent"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/abc_single_zero"
                 android:id="@+id/txtview_score_team2"
                 android:fontFamily="sans-serif-light"
                 android:textSize="112sp"
-                android:textColor="@android:color/darker_gray"
-                android:gravity="center" />
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:padding="8dp"
+                android:layout_margin="8dp"
+                android:background="@color/colorAccent"
+                android:elevation="8dp" />
 
             <ImageButton
                 android:layout_width="112sp"
@@ -148,6 +160,39 @@
                 android:src="@drawable/btn_action_down"
                 android:background="@android:color/transparent"
                 android:tint="@color/colorPrimaryDark" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Time Outs"
+                android:id="@+id/textView_timeout_team2"
+                android:fontFamily="sans-serif"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:textColor="@android:color/darker_gray" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/LinearLayout_ScoreContainer"
+                android:gravity="center" >
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox_2_1" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBox_2_2" />
+
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
