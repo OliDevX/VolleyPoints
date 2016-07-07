@@ -46,6 +46,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Declares Timeout TextView and Layout variables
+
+        TextView TextViewTimeOutTeam1 = (TextView) findViewById(R.id.textView_timeout_team1);
+        TextView TextViewTimeOutTeam2 = (TextView) findViewById(R.id.textView_timeout_team2);
+
+
+        // Sets listeners for Timeouts
+
+        //Todo: Set listeners for Timeouts -- both Layout and Textviews
+
+
+
         // Declares TextView variables
 
         TextView TextViewTeam1Name = (TextView) findViewById(R.id.txtViewTeam1Name);

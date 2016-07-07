@@ -90,7 +90,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/LinearLayout_ScoreContainer"
-                android:gravity="center">
+                android:gravity="center"
+                android:id="@+id/Layout_timeout_team1">
 
                 <CheckBox
                     android:layout_width="wrap_content"
@@ -178,7 +179,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/LinearLayout_ScoreContainer"
-                android:gravity="center" >
+                android:gravity="center"
+                android:id="@+id/Layout_timeout_team2">
 
                 <CheckBox
                     android:layout_width="wrap_content"
