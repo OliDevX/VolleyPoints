@@ -52,8 +52,8 @@
                 android:gravity="center"
                 android:padding="8dp"
                 android:layout_margin="8dp"
-                android:background="@color/colorAccent"
-                android:elevation="8dp" />
+                android:elevation="8dp"
+                android:background="@drawable/rounded_corner" />
 
             <ImageButton
                 android:layout_width="112sp"
@@ -95,12 +95,16 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/checkBox_1_1" />
+                    android:id="@+id/checkBox_1_1"
+                    android:clickable="false"
+                    android:enabled="true" />
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/checkBox_1_2" />
+                    android:id="@+id/checkBox_1_2"
+                    android:clickable="false"
+                    android:enabled="true" />
 
             </LinearLayout>
 
@@ -138,8 +142,8 @@
                 android:gravity="center"
                 android:padding="8dp"
                 android:layout_margin="8dp"
-                android:background="@color/colorAccent"
-                android:elevation="8dp" />
+                android:elevation="8dp"
+                android:background="@drawable/rounded_corner"/>
 
             <ImageButton
                 android:layout_width="112sp"
@@ -179,12 +183,16 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/checkBox_2_1" />
+                    android:id="@+id/checkBox_2_1"
+                    android:clickable="false"
+                    android:enabled="true" />
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/checkBox_2_2" />
+                    android:id="@+id/checkBox_2_2"
+                    android:clickable="false"
+                    android:enabled="true" />
 
             </LinearLayout>
         </LinearLayout>
