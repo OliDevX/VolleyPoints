@@ -2,16 +2,20 @@ package com.dragonflyx.volleypoints;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.BoolRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
+import android.text.Layout;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.app.AlertDialog;
@@ -25,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
     public String Team1Name = "HOME"; // Holds Team1 Name
     public String Team2Name = "VISIT"; // Holds Team2 Name
+
+    public int Team1TeamOuts = 0;  // Holds Team1 Used TimeOuts
+    public int Team2TeamOuts = 0;  // Holds Team2 Used TimeOuts
 
     ////////////////////////////////////////////////////
 
@@ -51,10 +58,38 @@ public class MainActivity extends AppCompatActivity {
         TextView TextViewTimeOutTeam1 = (TextView) findViewById(R.id.textView_timeout_team1);
         TextView TextViewTimeOutTeam2 = (TextView) findViewById(R.id.textView_timeout_team2);
 
+        LinearLayout LayoutTimeOutTeam1 = (LinearLayout) findViewById(R.id.Layout_timeout_team1);
+        LinearLayout LayoutTimeOutTeam2 = (LinearLayout) findViewById(R.id.Layout_timeout_team2);
 
-        // Sets listeners for Timeouts
+        // Sets listeners for Timeouts (for both TextViews and LinearLayouts directly above checkboxes)
 
-        //Todo: Set listeners for Timeouts -- both Layout and Textviews
+        TextViewTimeOutTeam1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                addTimeOut(1);
+            }
+        });
+
+        TextViewTimeOutTeam2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                addTimeOut(2);
+            }
+        });
+
+        LayoutTimeOutTeam1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                addTimeOut(1);
+            }
+        });
+
+        LayoutTimeOutTeam2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                addTimeOut(2);
+            }
+        });
 
         // Declares TextView variables
 
@@ -121,6 +156,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // End of OnClickListeners for Buttons
+    }
+
+    // addTimeOut method increases the number of timeouts of the specific team by 1
+    // team parameter tells the team: 1 - Team1 and 2 - Team2
+
+    public void addTimeOut(int team){
+        if (team==1){
+            if (Team1TeamOuts<2){
+                Team1TeamOuts++;
+            }
+        }
+        if (team==2){
+            if (Team2TeamOuts<2){
+                Team2TeamOuts++;
+            }
+        }
+
+        updateDisplays();  // Calls function to update the displays with new timeouts
     }
 
     // changeScore method uses inputs from buttons to change scores on layout:
@@ -191,6 +244,9 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
+    // upadteDisplays method is invoqued every time an element on the scoreboard changes
+    // it updates the layout with current information of team name, score and timeouts
+
     public void updateDisplays(){
 
         // Declares both text views
@@ -208,6 +264,44 @@ public class MainActivity extends AppCompatActivity {
 
         txtViewScoreTeam1.setText(Integer.toString(Team1Points));
         txtViewScoreTeam2.setText(Integer.toString(Team2Points));
+
+
+        // Declares Checkboxes for timeouts & checkes boxes according to current state
+
+        CheckBox CheckBoxTeam1_1 = (CheckBox) findViewById(R.id.checkBox_1_1);
+        CheckBox CheckBoxTeam1_2 = (CheckBox) findViewById(R.id.checkBox_1_2);
+        CheckBox CheckBoxTeam2_1 = (CheckBox) findViewById(R.id.checkBox_2_1);
+        CheckBox CheckBoxTeam2_2 = (CheckBox) findViewById(R.id.checkBox_2_2);
+
+        if (Team1TeamOuts==0) {
+            CheckBoxTeam1_1.setChecked(false);
+            CheckBoxTeam1_2.setChecked(false);
+        }
+
+        if (Team1TeamOuts==1) {
+            CheckBoxTeam1_1.setChecked(true);
+            CheckBoxTeam1_2.setChecked(false);
+        }
+
+        if (Team1TeamOuts==2) {
+            CheckBoxTeam1_1.setChecked(true);
+            CheckBoxTeam1_2.setChecked(true);
+        }
+
+        if (Team2TeamOuts==0) {
+            CheckBoxTeam2_1.setChecked(false);
+            CheckBoxTeam2_2.setChecked(false);
+        }
+
+        if (Team2TeamOuts==1) {
+            CheckBoxTeam2_1.setChecked(true);
+            CheckBoxTeam2_2.setChecked(false);
+        }
+
+        if (Team2TeamOuts==2) {
+            CheckBoxTeam2_1.setChecked(true);
+            CheckBoxTeam2_2.setChecked(true);
+        }
 
     }
 
