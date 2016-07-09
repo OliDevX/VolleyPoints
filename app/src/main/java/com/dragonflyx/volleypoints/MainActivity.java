@@ -2,13 +2,11 @@ package com.dragonflyx.volleypoints;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.BoolRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
-import android.text.Layout;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,7 +15,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.app.AlertDialog;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     public String Team1Name = "HOME"; // Holds Team1 Name
     public String Team2Name = "VISIT"; // Holds Team2 Name
 
-    public int Team1TeamOuts = 0;  // Holds Team1 Used TimeOuts
-    public int Team2TeamOuts = 0;  // Holds Team2 Used TimeOuts
+    public int Team1TimeOuts = 0;  // Holds Team1 Used TimeOuts
+    public int Team2TimeOuts = 0;  // Holds Team2 Used TimeOuts
 
     ////////////////////////////////////////////////////
 
@@ -163,13 +160,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void addTimeOut(int team){
         if (team==1){
-            if (Team1TeamOuts<2){
-                Team1TeamOuts++;
+            if (Team1TimeOuts <2){
+                Team1TimeOuts++;
             }
         }
         if (team==2){
-            if (Team2TeamOuts<2){
-                Team2TeamOuts++;
+            if (Team2TimeOuts <2){
+                Team2TimeOuts++;
             }
         }
 
@@ -273,32 +270,32 @@ public class MainActivity extends AppCompatActivity {
         CheckBox CheckBoxTeam2_1 = (CheckBox) findViewById(R.id.checkBox_2_1);
         CheckBox CheckBoxTeam2_2 = (CheckBox) findViewById(R.id.checkBox_2_2);
 
-        if (Team1TeamOuts==0) {
+        if (Team1TimeOuts ==0) {
             CheckBoxTeam1_1.setChecked(false);
             CheckBoxTeam1_2.setChecked(false);
         }
 
-        if (Team1TeamOuts==1) {
+        if (Team1TimeOuts ==1) {
             CheckBoxTeam1_1.setChecked(true);
             CheckBoxTeam1_2.setChecked(false);
         }
 
-        if (Team1TeamOuts==2) {
+        if (Team1TimeOuts ==2) {
             CheckBoxTeam1_1.setChecked(true);
             CheckBoxTeam1_2.setChecked(true);
         }
 
-        if (Team2TeamOuts==0) {
+        if (Team2TimeOuts ==0) {
             CheckBoxTeam2_1.setChecked(false);
             CheckBoxTeam2_2.setChecked(false);
         }
 
-        if (Team2TeamOuts==1) {
+        if (Team2TimeOuts ==1) {
             CheckBoxTeam2_1.setChecked(true);
             CheckBoxTeam2_2.setChecked(false);
         }
 
-        if (Team2TeamOuts==2) {
+        if (Team2TimeOuts ==2) {
             CheckBoxTeam2_1.setChecked(true);
             CheckBoxTeam2_2.setChecked(true);
         }
@@ -320,7 +317,10 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.action_reset:
-                // Todo: Respond to the resent menu click
+                resetScores();
+                return true;
+            case R.id.action_reset_timeouts:
+                resetTimeouts();
                 return true;
             case R.id.action_help:
                 // Todo: Respond to the help menu click
@@ -332,14 +332,24 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
 
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_reset) {
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
+    }
 
+    // Method resetScores resets all scores for points and timeouts to 0
+
+    public void resetScores(){
+        Team1Points = 0;
+        Team2Points = 0;
+        Team2TimeOuts = 0;
+        Team1TimeOuts = 0;
+        updateDisplays();
+
+    }
+
+    // Method resetTimeouts resets all timeouts to 0
+
+    public void resetTimeouts(){
+        Team1TimeOuts =0;
+        Team2TimeOuts =0;
     }
 
 }

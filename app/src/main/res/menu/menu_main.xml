@@ -8,7 +8,7 @@
         android:title="@string/abc_action_reset"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_help"
+        android:id="@+id/action_reset_timeouts"
         android:orderInCategory="200"
         android:title="@string/abc_action_help"
         app:showAsAction="never" />

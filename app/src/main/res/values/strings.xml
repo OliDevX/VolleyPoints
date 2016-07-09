@@ -5,8 +5,9 @@
     <string name="abc_single_zero">0</string>
     <string name="abc_change_teams_name">Change team\'s name</string>
     <string name="abc_ok_caps">OK</string>
-    <string name="abc_cancel_caps">CANCEL</string>
-    <string name="abc_action_reset">Reset</string>
+    <string name="abc_cancel_caps">Cancel</string>
+    <string name="abc_action_reset">Reset All Scores</string>
+    <string name="abc_action_reset_timeouts">Reset TimeOuts</string>
     <string name="abc_action_help">Help</string>
     <string name="abc_action_about">About</string>
 </resources>
