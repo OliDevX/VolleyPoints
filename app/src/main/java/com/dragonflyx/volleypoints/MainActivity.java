@@ -350,6 +350,7 @@ public class MainActivity extends AppCompatActivity {
     public void resetTimeouts(){
         Team1TimeOuts =0;
         Team2TimeOuts =0;
+        updateDisplays();
     }
 
 }
