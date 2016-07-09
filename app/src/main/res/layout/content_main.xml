@@ -31,7 +31,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="48dp"
-                android:text="Team 1"
+                android:text="@string/abc_home_caps"
                 android:id="@+id/txtViewTeam1Name"
                 android:fontFamily="sans-serif"
                 android:textSize="24sp"
@@ -76,7 +76,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="36dp"
-                android:text="Time Outs"
+                android:text="@string/abc_time_out_caps"
                 android:id="@+id/textView_timeout_team1"
                 android:fontFamily="sans-serif"
                 android:textSize="20sp"
@@ -122,7 +122,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="48dp"
-                android:text="Team 2"
+                android:text="@string/abc_visit_caps"
                 android:id="@+id/txtViewTeam2Name"
                 android:fontFamily="sans-serif"
                 android:textSize="24sp"
@@ -165,7 +165,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="36dp"
-                android:text="Time Outs"
+                android:text="@string/abc_time_out_caps"
                 android:id="@+id/textView_timeout_team2"
                 android:fontFamily="sans-serif"
                 android:textSize="20sp"
