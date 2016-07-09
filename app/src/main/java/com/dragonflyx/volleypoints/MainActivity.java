@@ -231,7 +231,7 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
-        builder.setNegativeButton(R.string.abc_cancel_caps, new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.abc_cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -351,6 +351,24 @@ public class MainActivity extends AppCompatActivity {
         Team1TimeOuts =0;
         Team2TimeOuts =0;
         updateDisplays();
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle(R.string.abc_closing_activity_title)
+                .setMessage(R.string.abc_closing_activity)
+                .setPositiveButton(R.string.abc_yes, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+
+                })
+                .setNegativeButton(R.string.abc_no, null)
+                .show();
     }
 
 }
