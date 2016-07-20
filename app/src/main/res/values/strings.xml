@@ -5,8 +5,16 @@
     <string name="abc_single_zero">0</string>
     <string name="abc_change_teams_name">Change team\'s name</string>
     <string name="abc_ok_caps">OK</string>
-    <string name="abc_cancel_caps">CANCEL</string>
-    <string name="abc_action_reset">Reset</string>
+    <string name="abc_yes">Yes</string>
+    <string name="abc_no">No</string>
+    <string name="abc_cancel">Cancel</string>
+    <string name="abc_action_reset">Reset All</string>
+    <string name="abc_action_reset_timeouts">Reset Time-outs</string>
     <string name="abc_action_help">Help</string>
     <string name="abc_action_about">About</string>
+    <string name="abc_closing_activity">Do you want to close VolleyPoints?\nIf you close VolleyPoints, all current game information will be lost.</string>
+    <string name="abc_closing_activity_title">Closing VolleyPoints</string>
+    <string name="abc_time_out_caps">TIME OUT</string>
+    <string name="abc_home_caps">HOME</string>
+    <string name="abc_visit_caps">VISIT</string>
 </resources>

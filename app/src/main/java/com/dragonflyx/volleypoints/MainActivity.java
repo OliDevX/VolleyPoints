@@ -10,10 +10,11 @@ import android.text.InputType;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.app.AlertDialog;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
     public String Team1Name = "HOME"; // Holds Team1 Name
     public String Team2Name = "VISIT"; // Holds Team2 Name
+
+    public int Team1TimeOuts = 0;  // Holds Team1 Used TimeOuts
+    public int Team2TimeOuts = 0;  // Holds Team2 Used TimeOuts
 
     ////////////////////////////////////////////////////
 
@@ -51,12 +55,38 @@ public class MainActivity extends AppCompatActivity {
         TextView TextViewTimeOutTeam1 = (TextView) findViewById(R.id.textView_timeout_team1);
         TextView TextViewTimeOutTeam2 = (TextView) findViewById(R.id.textView_timeout_team2);
 
+        LinearLayout LayoutTimeOutTeam1 = (LinearLayout) findViewById(R.id.Layout_timeout_team1);
+        LinearLayout LayoutTimeOutTeam2 = (LinearLayout) findViewById(R.id.Layout_timeout_team2);
 
-        // Sets listeners for Timeouts
+        // Sets listeners for Timeouts (for both TextViews and LinearLayouts directly above checkboxes)
 
-        //Todo: Set listeners for Timeouts -- both Layout and Textviews
+        TextViewTimeOutTeam1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                addTimeOut(1);
+            }
+        });
 
+        TextViewTimeOutTeam2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                addTimeOut(2);
+            }
+        });
 
+        LayoutTimeOutTeam1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                addTimeOut(1);
+            }
+        });
+
+        LayoutTimeOutTeam2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                addTimeOut(2);
+            }
+        });
 
         // Declares TextView variables
 
@@ -125,6 +155,24 @@ public class MainActivity extends AppCompatActivity {
         // End of OnClickListeners for Buttons
     }
 
+    // addTimeOut method increases the number of timeouts of the specific team by 1
+    // team parameter tells the team: 1 - Team1 and 2 - Team2
+
+    public void addTimeOut(int team){
+        if (team==1){
+            if (Team1TimeOuts <2){
+                Team1TimeOuts++;
+            }
+        }
+        if (team==2){
+            if (Team2TimeOuts <2){
+                Team2TimeOuts++;
+            }
+        }
+
+        updateDisplays();  // Calls function to update the displays with new timeouts
+    }
+
     // changeScore method uses inputs from buttons to change scores on layout:
     // Parameters are: int team >> 1 or 2; Boolean action >>  True-increase points, False-decrease points
 
@@ -183,7 +231,7 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
-        builder.setNegativeButton(R.string.abc_cancel_caps, new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.abc_cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -192,6 +240,9 @@ public class MainActivity extends AppCompatActivity {
 
         builder.show();
     }
+
+    // upadteDisplays method is invoqued every time an element on the scoreboard changes
+    // it updates the layout with current information of team name, score and timeouts
 
     public void updateDisplays(){
 
@@ -211,6 +262,44 @@ public class MainActivity extends AppCompatActivity {
         txtViewScoreTeam1.setText(Integer.toString(Team1Points));
         txtViewScoreTeam2.setText(Integer.toString(Team2Points));
 
+
+        // Declares Checkboxes for timeouts & checkes boxes according to current state
+
+        CheckBox CheckBoxTeam1_1 = (CheckBox) findViewById(R.id.checkBox_1_1);
+        CheckBox CheckBoxTeam1_2 = (CheckBox) findViewById(R.id.checkBox_1_2);
+        CheckBox CheckBoxTeam2_1 = (CheckBox) findViewById(R.id.checkBox_2_1);
+        CheckBox CheckBoxTeam2_2 = (CheckBox) findViewById(R.id.checkBox_2_2);
+
+        if (Team1TimeOuts ==0) {
+            CheckBoxTeam1_1.setChecked(false);
+            CheckBoxTeam1_2.setChecked(false);
+        }
+
+        if (Team1TimeOuts ==1) {
+            CheckBoxTeam1_1.setChecked(true);
+            CheckBoxTeam1_2.setChecked(false);
+        }
+
+        if (Team1TimeOuts ==2) {
+            CheckBoxTeam1_1.setChecked(true);
+            CheckBoxTeam1_2.setChecked(true);
+        }
+
+        if (Team2TimeOuts ==0) {
+            CheckBoxTeam2_1.setChecked(false);
+            CheckBoxTeam2_2.setChecked(false);
+        }
+
+        if (Team2TimeOuts ==1) {
+            CheckBoxTeam2_1.setChecked(true);
+            CheckBoxTeam2_2.setChecked(false);
+        }
+
+        if (Team2TimeOuts ==2) {
+            CheckBoxTeam2_1.setChecked(true);
+            CheckBoxTeam2_2.setChecked(true);
+        }
+
     }
 
     @Override
@@ -225,14 +314,61 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_reset) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_reset:
+                resetScores();
+                return true;
+            case R.id.action_reset_timeouts:
+                resetTimeouts();
+                return true;
+            case R.id.action_help:
+                // Todo: Respond to the help menu click
+                return true;
+            case R.id.action_about:
+                // ToDo: Respond to the about menu click
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
 
+    }
+
+    // Method resetScores resets all scores for points and timeouts to 0
+
+    public void resetScores(){
+        Team1Points = 0;
+        Team2Points = 0;
+        Team2TimeOuts = 0;
+        Team1TimeOuts = 0;
+        updateDisplays();
+
+    }
+
+    // Method resetTimeouts resets all timeouts to 0
+
+    public void resetTimeouts(){
+        Team1TimeOuts =0;
+        Team2TimeOuts =0;
+        updateDisplays();
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle(R.string.abc_closing_activity_title)
+                .setMessage(R.string.abc_closing_activity)
+                .setPositiveButton(R.string.abc_yes, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+
+                })
+                .setNegativeButton(R.string.abc_no, null)
+                .show();
     }
 
 }
