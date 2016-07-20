@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.app.AlertDialog;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,6 +50,46 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        // Declares Score TextView variables
+
+        TextView TextViewScoreTeam1 = (TextView) findViewById(R.id.txtview_score_team1);
+        TextView TextViewScoreTeam2 = (TextView) findViewById(R.id.txtview_score_team2);
+
+        // Set listeners for Score TextViews
+
+        TextViewScoreTeam1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeScore(1,true);
+                // Toast.makeText(MainActivity.this, "test", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        TextViewScoreTeam2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeScore(2,true);
+                // Toast.makeText(MainActivity.this, "test", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        TextViewScoreTeam1.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                changeScore(1,false);
+                return true;
+            }
+        });
+
+        TextViewScoreTeam2.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                changeScore(2,false);
+                return true;
+            }
+        });
+
 
         // Declares Timeout TextView and Layout variables
 
@@ -179,7 +220,8 @@ public class MainActivity extends AppCompatActivity {
     public void changeScore(int team, boolean action){
         if(team==1){
             if(action == true){
-                if (Team1Points<99){Team1Points++;}
+                if (Team1Points<99){Team1Points++;
+                }
             }
             if (action== false){
                 if (Team1Points>0){Team1Points--;}
