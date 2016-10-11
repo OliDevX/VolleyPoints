@@ -392,6 +392,7 @@ public class MainActivity extends AppCompatActivity {
     public void resetTimeouts(){
         Team1TimeOuts =0;
         Team2TimeOuts =0;
+        Toast.makeText(MainActivity.this, "Time-outs reset", Toast.LENGTH_SHORT).show();
         updateDisplays();
     }
 

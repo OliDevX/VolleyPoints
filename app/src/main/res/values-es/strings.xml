@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VolleyPoints</string>
+    <string name="abc_time_out_reset_toast">Tiempos fuera de vuelta a cero</string>
+    <string name="abc_visit_caps">VISITANTE</string>
+    <string name="abc_yes">Sí</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="abc_time_out_caps">TIEMPO FUERA</string>
+    <string name="abc_action_about">Acerca de</string>
+    <string name="abc_action_help">Ayuda</string>
+    <string name="abc_action_reset">Volver todo a ceros</string>
+    <string name="abc_action_reset_timeouts">Volver los tiempos fuera a ceros</string>
+    <string name="abc_cancel">Cancelar</string>
+    <string name="abc_change_teams_name">Cambiar nombre del equipo</string>
+    <string name="abc_closing_activity">¿En verdad quiere cerrar VolleyPoints? Si lo hace, perderá la información actual del juego</string>
+    <string name="abc_closing_activity_title">Cerrando VolleyPoints</string>
+    <string name="abc_home_caps">LOCAL</string>
+    <string name="abc_no">No</string>
+    <string name="abc_ok_caps">OK</string>
+</resources>
