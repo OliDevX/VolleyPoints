@@ -17,4 +17,5 @@
     <string name="abc_home_caps">LOCAL</string>
     <string name="abc_no">No</string>
     <string name="abc_ok_caps">OK</string>
+    <string name="abc_all_reset_toast">Todos los marcadores a ceros</string>
 </resources>

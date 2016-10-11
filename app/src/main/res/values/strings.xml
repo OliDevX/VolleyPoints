@@ -18,4 +18,5 @@
     <string name="abc_home_caps">HOME</string>
     <string name="abc_visit_caps">VISIT</string>
     <string name="abc_time_out_reset_toast">Time outs reset</string>
+    <string name="abc_all_reset_toast">All scores reset</string>
 </resources>

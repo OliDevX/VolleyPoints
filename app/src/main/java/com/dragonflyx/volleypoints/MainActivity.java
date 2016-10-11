@@ -25,8 +25,11 @@ public class MainActivity extends AppCompatActivity {
     public int Team1Points = 0; // Holds Team1Points
     public int Team2Points = 0; // Holds Team2Points
 
-    public String Team1Name = "HOME"; // Holds Team1 Name
-    public String Team2Name = "VISIT"; // Holds Team2 Name
+    public String Team1Name;
+    public String Team2Name;
+
+    //public String Team1Name = "HOME"; // Holds Team1 Name
+    //public String Team2Name = "VISIT"; // Holds Team2 Name
 
     public int Team1TimeOuts = 0;  // Holds Team1 Used TimeOuts
     public int Team2TimeOuts = 0;  // Holds Team2 Used TimeOuts
@@ -55,6 +58,13 @@ public class MainActivity extends AppCompatActivity {
 
         TextView TextViewScoreTeam1 = (TextView) findViewById(R.id.txtview_score_team1);
         TextView TextViewScoreTeam2 = (TextView) findViewById(R.id.txtview_score_team2);
+
+        // Set names for Teams and Updates Displays
+
+        Team1Name = getResources().getString(R.string.abc_home_caps);
+        Team2Name = getResources().getString(R.string.abc_visit_caps);
+
+        updateDisplays();
 
         // Set listeners for Score TextViews
 
@@ -383,6 +393,7 @@ public class MainActivity extends AppCompatActivity {
         Team2Points = 0;
         Team2TimeOuts = 0;
         Team1TimeOuts = 0;
+        Toast.makeText(MainActivity.this, R.string.abc_all_reset_toast, Toast.LENGTH_SHORT).show();
         updateDisplays();
 
     }
@@ -392,7 +403,7 @@ public class MainActivity extends AppCompatActivity {
     public void resetTimeouts(){
         Team1TimeOuts =0;
         Team2TimeOuts =0;
-        Toast.makeText(MainActivity.this, "Time-outs reset", Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, R.string.abc_time_out_reset_toast, Toast.LENGTH_SHORT).show();
         updateDisplays();
     }
 
