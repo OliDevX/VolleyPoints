@@ -18,4 +18,7 @@
     <string name="abc_no">No</string>
     <string name="abc_ok_caps">OK</string>
     <string name="abc_all_reset_toast">Todos los marcadores a ceros</string>
+    <string name="abc_understood">Entendido</string>
+    <string name="abc_about_title">Acerca de VolleyPoints</string>
+    <string name="abc_about_text">VolleyPoints es una aplicación simple e intuitiva para llevar el marcador en un juego de voleibol.  Gracias por utilizar VolleyPoints</string>
 </resources>

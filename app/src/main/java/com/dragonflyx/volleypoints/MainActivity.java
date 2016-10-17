@@ -382,7 +382,7 @@ public class MainActivity extends AppCompatActivity {
                 // Todo: Respond to the help menu click
                 return true;
             case R.id.action_about:
-                // ToDo: Respond to the about menu click
+                onAboutDialog();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -426,6 +426,15 @@ public class MainActivity extends AppCompatActivity {
 
                 })
                 .setNegativeButton(R.string.abc_no, null)
+                .show();
+    }
+
+    public void onAboutDialog(){
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .setTitle(R.string.abc_about_title)
+                .setMessage(R.string.abc_about_text)
+                .setPositiveButton(R.string.abc_understood, null)
                 .show();
     }
 

@@ -19,4 +19,7 @@
     <string name="abc_visit_caps">VISIT</string>
     <string name="abc_time_out_reset_toast">Time outs reset</string>
     <string name="abc_all_reset_toast">All scores reset</string>
+    <string name="abc_understood">I got it</string>
+    <string name="abc_about_title">About VolleyPoints</string>
+    <string name="abc_about_text">VolleyPoints is a simple and intuitive application to keep score on a volleyball game.  Thanks for using VolleyPoints</string>
 </resources>
