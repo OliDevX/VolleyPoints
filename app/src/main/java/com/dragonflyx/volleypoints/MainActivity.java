@@ -211,12 +211,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void addTimeOut(int team){
         if (team==1){
-            if (Team1TimeOuts <2){
+            if (Team1TimeOuts==2){
+                Team1TimeOuts=0;
+            } else if (Team1TimeOuts<2){
                 Team1TimeOuts++;
             }
         }
         if (team==2){
-            if (Team2TimeOuts <2){
+            if (Team2TimeOuts==2){
+                Team2TimeOuts=0;
+            } else if (Team2TimeOuts <2){
                 Team2TimeOuts++;
             }
         }
